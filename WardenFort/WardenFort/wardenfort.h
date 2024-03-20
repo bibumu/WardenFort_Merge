@@ -12,7 +12,7 @@ class wardenfort;
 QT_END_NAMESPACE
 
 class wardenfort : public QMainWindow
-{
+{ 
     Q_OBJECT
 
 public:
