@@ -101,12 +101,12 @@
     <QtRcc Include="wardenfort.qrc" />
     <QtUic Include="login.ui" />
     <QtUic Include="signup.ui" />
-    <QtUic Include="wardenfort.ui" />
     <QtMoc Include="wardenfort.h" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="signup.cpp" />
     <ClCompile Include="wardenfort.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="wardenfort.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="login.h" />

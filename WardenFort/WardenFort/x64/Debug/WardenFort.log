@@ -1,18 +1,2 @@
-﻿  Reading Qt configuration (C:/Qt/6.5.3/msvc2019_64/bin/qmake)
-  uic login.ui
-  uic signup.ui
-  uic wardenfort.ui
-  rcc wardenfort.qrc
-  moc wardenfort.h
-  moc login.h
-  moc signup.h
-   RCC: Warning: No resources in 'C:\Users\ADmin\Documents\GitHub\WardenFort\WardenFort\WardenFort\wardenfort.qrc'.
-  login.cpp
-  signup.cpp
-  wardenfort.cpp
-  main.cpp
-  qrc_wardenfort.cpp
-  moc_wardenfort.cpp
-  moc_login.cpp
-  moc_signup.cpp
+﻿  wardenfort.cpp
   WardenFort.vcxproj -> C:\Users\ADmin\Documents\GitHub\WardenFort\WardenFort\x64\Debug\WardenFort.exe

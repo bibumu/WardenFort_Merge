@@ -26,9 +26,6 @@
     <QtRcc Include="wardenfort.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-    <QtUic Include="wardenfort.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtMoc Include="wardenfort.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -60,6 +57,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="signup.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="wardenfort.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
