@@ -18,12 +18,13 @@ class wardenfort : public QMainWindow
 public:
     wardenfort(QWidget *parent = nullptr);
     ~wardenfort();
+    Ui::wardenfort* ui;
 private slots:
     void on_LineEdit_ReturnPressed();
     void updateList(QString& text);
     void on_listBox_currentIndexChanged(int index);
 private:
-    Ui::wardenfort* ui;
+    
     
     QStringListModel *listModel;
     pcap_if_t* alldevs = nullptr;
