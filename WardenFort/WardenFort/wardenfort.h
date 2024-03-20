@@ -1,7 +1,13 @@
-#pragma once
+#ifndef WARDENFORT_H
+#define WARDENFORT_H
 
-#include <QtWidgets/QMainWindow>
-#include "ui_wardenfort.h"
+#include <QMainWindow>
+
+QT_BEGIN_NAMESPACE
+namespace Ui {
+class wardenfort;
+}
+QT_END_NAMESPACE
 
 class wardenfort : public QMainWindow
 {
@@ -12,5 +18,6 @@ public:
     ~wardenfort();
 
 private:
-    Ui::wardenfortClass ui;
+    Ui::wardenfort *ui;
 };
+#endif // WARDENFORT_H

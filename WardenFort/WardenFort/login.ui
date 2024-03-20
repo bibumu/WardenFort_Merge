@@ -43,7 +43,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../../Downloads/cyber (1).png</pixmap>
+     <pixmap>wardenfort 1.png</pixmap>
     </property>
    </widget>
    <widget class="QWidget" name="widget" native="true">
@@ -299,7 +299,7 @@ background-color: rgba(0, 0, 0, 0);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../../Downloads/logo (5).png</pixmap>
+     <pixmap>7-removebg-preview 1.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="wf_word_2">
@@ -376,7 +376,7 @@ background-color: rgba(0, 0, 0, 0);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../../Downloads/wardenfort_word (1).png</pixmap>
+     <pixmap>wardenfort (1) 2.png</pixmap>
     </property>
    </widget>
   </widget>
