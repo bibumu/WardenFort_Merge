@@ -1,6 +1,8 @@
 // WardenFort.cpp
 #include "WardenFort.h"
 #include "ui_WardenFort.h"
+#include <QColor>
+#include <QTableWidgetItem>
 
 WardenFort::WardenFort(QWidget* parent)
     : QMainWindow(parent)
@@ -63,6 +65,7 @@ int i = 0;
 
 constexpr int MAX_EXPECTED_PAYLOAD_LENGTH = 1500; // Maximum expected payload length
 constexpr int MIN_EXPECTED_PAYLOAD_LENGTH = 0;    // Minimum expected payload length (can be adjusted as needed)
+constexpr int MAX_EXPECTED_PACKET_LENGTH = 70;
 
 struct IPHeader {
     u_char  VersionAndHeaderLength; // Version (4 bits) + Header length (4 bits)
@@ -75,6 +78,13 @@ struct IPHeader {
     u_short HeaderChecksum;          // Header checksum
     u_long  Source;                  // Source address
     u_long  Destination;             // Destination address
+};
+
+struct ICMPHeader {
+    uint8_t type;     // ICMP message type
+    uint8_t code;     // ICMP message code
+    uint16_t checksum; // ICMP message checksum
+    // Additional fields if needed
 };
 
 struct my_tcphdr {
@@ -144,10 +154,7 @@ void analyzeTCPPacket(const u_char* packet, int packetLength, WardenFort& warden
 
     // Analyze payload length
     if (payloadLength > MAX_EXPECTED_PAYLOAD_LENGTH) {
-        i++;
         qDebug() << "Suspiciously long payload detected from" << sourceIp << ":" << sourcePort << "to" << destIp << ":" << destPort;
-        qDebug() << i;
-        wardenFort.setLabelText(QString::number(i) + " Threat");
         // Take appropriate action, such as logging or alerting
     }
     else if (payloadLength < MIN_EXPECTED_PAYLOAD_LENGTH) {
@@ -158,15 +165,11 @@ void analyzeTCPPacket(const u_char* packet, int packetLength, WardenFort& warden
     // Analyze TCP flags
     if (tcpHeader->th_flags & TH_SYN && !(tcpHeader->th_flags & TH_ACK)) {
         qDebug() << "THREAT ALERT: SYN packet without ACK detected from" << sourceIp << ":" << sourcePort << "to" << destIp << ":" << destPort;
-        i++;
-        wardenFort.setLabelText(QString::number(i) + " Threat");
-        // You may want to implement threatCounter and syn_count here
     }
     else {
         // Reset SYN packet counter for non-SYN packets
         // syn_count = 0; // Uncomment this line if syn_count is declared and defined elsewhere
     }
-
     // Analyze other aspects of the TCP packet as needed
     // For example, you could check sequence numbers, window size, etc.
 }
@@ -205,6 +208,14 @@ void packetHandler(WardenFort* wardenFort, const struct pcap_pkthdr* pkthdr, con
     if (tcpHeader->th_flags & TH_FIN) flags += "FIN ";
     // Add other flags as needed
 
+    // Calculate TCP header length
+    int tcpHeaderLength = (tcpHeader->th_offx2 >> 4) * 4;
+
+    // Calculate payload length
+    int payloadLength = pkthdr->caplen - sizeof(IPHeader) - tcpHeaderLength; // Calculate payload length
+
+    // Extracting the IP header from the packet
+
     // Populate tableWidget
     QTableWidget* tableWidget = wardenFort->getTableWidget(); // Assuming you have a getter method for tableWidget
     int row = tableWidget->rowCount();
@@ -216,12 +227,92 @@ void packetHandler(WardenFort* wardenFort, const struct pcap_pkthdr* pkthdr, con
     tableWidget->setItem(row, 4, new QTableWidgetItem(destPort));
     tableWidget->setItem(row, 5, new QTableWidgetItem(flags));
     tableWidget->setItem(row, 6, new QTableWidgetItem(QString::number(pkthdr->caplen)));
-    
+
+    // Check for suspiciously long payload and change row color if detected
+    if (payloadLength > MAX_EXPECTED_PAYLOAD_LENGTH) {
+        i++;
+        wardenFort->setLabelText(QString::number(i));
+        for (int col = 0; col < tableWidget->columnCount(); ++col) {
+            tableWidget->item(row, col)->setBackground(QColor(75, 44, 44)); // Change row color to red
+        }
+    }
+
+    if (tcpHeader->th_flags & TH_SYN && !(tcpHeader->th_flags & TH_ACK)) {
+        i++;
+        wardenFort->setLabelText(QString::number(i));
+        for (int col = 0; col < tableWidget->columnCount(); ++col) {
+            tableWidget->item(row, col)->setBackground(QColor(75, 57, 44));
+        }
+    }
+
+    if (payloadLength < MIN_EXPECTED_PAYLOAD_LENGTH) {
+        i++;
+        wardenFort->setLabelText(QString::number(i));
+        for (int col = 0; col < tableWidget->columnCount(); ++col) {
+            tableWidget->item(row, col)->setBackground(QColor(75, 44, 44)); // Change row color to red
+        }
+    }
+    // Check if the packet is an ICMP packet
+    if (ipHeader->Protocol == IPPROTO_ICMP) {
+        // Calculate the total length of the packet
+        int totalLength = ntohs(ipHeader->TotalLength);
+
+        // Calculate the length of the ICMP header
+        int icmpHeaderLength = sizeof(ICMPHeader);
+
+        // Calculate the length of the ICMP payload
+        int icmpPayloadLength = totalLength - sizeof(IPHeader) - icmpHeaderLength;
+
+        // Check if the ICMP payload length exceeds a certain threshold
+        constexpr int MAX_ICMP_PAYLOAD_LENGTH = 10; // Adjust as needed
+        if (icmpPayloadLength > MAX_ICMP_PAYLOAD_LENGTH) {
+            // If the ICMP payload is too large, log the event or take appropriate action
+            qDebug() << "Large ICMP Echo Request detected. Payload Length:" << icmpPayloadLength;
+            i++;
+            wardenFort->setLabelText(QString::number(i));
+            // Add code here to log the event or take appropriate action
+            // Change row color to red
+            for (int col = 0; col < tableWidget->columnCount(); ++col) {
+                tableWidget->item(row, col)->setBackground(QColor(75, 44, 44));
+            }
+        }
+    }
+
+    // Port scanning detector
+    if (tcpHeader->th_flags & TH_SYN && !(tcpHeader->th_flags & TH_ACK)) {
+        // Check if the destination port is in a range commonly used for scanning
+        if (ntohs(tcpHeader->th_dport) >= 1 && ntohs(tcpHeader->th_dport) <= 1024) {
+            // Port scanning detected
+            qDebug() << "Port Scanning Detected. Source:" << sourceIp << " Destination Port:" << destPort;
+            i++;
+            wardenFort->setLabelText(QString::number(i));
+            // Add code here to log the event or take appropriate action
+            // Change row color to another color to denote port scanning
+            for (int col = 0; col < tableWidget->columnCount(); ++col) {
+                tableWidget->item(row, col)->setBackground(QColor(145, 38, 38));
+            }
+        }
+    }
+
+    if (pkthdr->caplen > MAX_EXPECTED_PACKET_LENGTH) {
+        // DoS attack suspected due to excessively large packet size
+        qDebug() << "Possible Denial of Service (DoS) Attack Detected. Packet Length:" << pkthdr->caplen;
+        i++;
+        wardenFort->setLabelText(QString::number(i));
+        // Add code here to log the event or take appropriate action
+        // Change row color to another color to denote DoS attack
+        for (int col = 0; col < tableWidget->columnCount(); ++col) {
+            tableWidget->item(row, col)->setBackground(QColor(255, 0, 0)); // Change row color to red
+        }
+    }
+
     // Print overall packet information
     qDebug().noquote() << packetInfo << "Source IP:" << sourceIp << "Destination IP:" << destIp << "Source Port:" << sourcePort << "Destination Port:" << destPort << "Flags:" << flags << "Captured length:" << pkthdr->caplen;
 
     // Analyze the TCP packet
     analyzeTCPPacket(packet, pkthdr->len, *wardenFort);
+
+    //always scroll to the bottom
     QMetaObject::invokeMethod(tableWidget->verticalScrollBar(), "setValue",
         Qt::QueuedConnection,
         Q_ARG(int, tableWidget->verticalScrollBar()->maximum()));
@@ -292,7 +383,7 @@ void WardenFort::scanActiveLANAdapters() { // Corrected definition
 
     // Iterate over the list of adapters
     for (pcap_if_t* adapter = allAdapters; adapter != nullptr; adapter = adapter->next) {
-        if (adapter->name != nullptr ) {
+        if (adapter->name != nullptr && !isFilteredAdapter(adapter)) {
             // Display the name and description of the LAN adapter
             qDebug() << "Active LAN adapter found:" << adapter->name << "Description:" << (adapter->description ? adapter->description : "No Description");
             

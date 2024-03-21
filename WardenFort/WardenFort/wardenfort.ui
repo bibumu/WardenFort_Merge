@@ -116,35 +116,26 @@ border-radius: 10px;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>171</width>
-       <height>41</height>
+       <x>0</x>
+       <y>-86</y>
+       <width>181</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 700 20pt &quot;Segoe UI&quot;;
-color: rgb(255, 255, 255);
-text-align: center;</string>
+      <string notr="true">QLabel {
+	background-color: rgba(255, 255, 255, 0);
+    border-radius: 10px; /* Adjust the value as per your preference */
+}</string>
      </property>
      <property name="text">
-      <string>001</string>
+      <string/>
      </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>151</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>New Detections</string>
+     <property name="pixmap">
+      <pixmap>output-onlinepngtools.png</pixmap>
      </property>
     </widget>
    </widget>
@@ -170,7 +161,7 @@ text-align: center;</string>
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(44, 60, 75);
+     <string notr="true">background-color: rgb(218, 17, 203);
 border-radius: 10px;</string>
     </property>
     <property name="frameShape">
@@ -179,13 +170,31 @@ border-radius: 10px;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>40</y>
+       <width>51</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 700 20pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+text-align: center;</string>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>270</x>
       <y>150</y>
-      <width>751</width>
+      <width>801</width>
       <height>192</height>
      </rect>
     </property>
@@ -198,44 +207,109 @@ QTableCornerButton::section {background-color: #191F32;}
 QTableWidget{
 background-color: #2C3C4B;
 color: white;
+border-radius: 10px;
 }</string>
     </property>
     <column>
      <property name="text">
-      <string>Timestamp:</string>
+      <string>Timestamp</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Source IP:</string>
+      <string>Source IP</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Destination IP:</string>
+      <string>Destination IP</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Source Port:</string>
+      <string>Source Port</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Destination Port:</string>
+      <string>Destination Port</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Flags:</string>
+      <string>Flags</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Captured length:</string>
+      <string>Captured length</string>
      </property>
     </column>
    </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>30</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 10pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: rgba(255, 255, 255, 0);</string>
+    </property>
+    <property name="text">
+     <string>Prevented Attacks</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>60</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    qproperty-alignment: AlignCenter;
+	font: 700 20pt &quot;Segoe UI&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>30</y>
+      <width>151</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 10pt &quot;Segoe UI&quot;;
+background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>New Detections</string>
+    </property>
+   </widget>
+   <zorder>frame_3</zorder>
+   <zorder>frame</zorder>
+   <zorder>frame_4</zorder>
+   <zorder>tableWidget</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
   </widget>
  </widget>
  <resources/>
