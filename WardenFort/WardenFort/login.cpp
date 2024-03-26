@@ -1,10 +1,12 @@
 #include "login.h"
-#include "wardenfort.h"
 #include "ui_login.h"
-#include "signup.h"
-#include <QPushButton>
 #include <QMessageBox>
+#include <QSqlError>
 #include <QSqlQuery>
+#include <QDebug>
+#include <QLineEdit> // Include for QLineEdit
+#include <QCheckBox> // Include for QCheckBox
+#include "wardenfort.h"
 
 login::login(QWidget* parent)
     : QMainWindow(parent)
@@ -12,12 +14,20 @@ login::login(QWidget* parent)
 {
     ui->setupUi(this);
 
-    // Connect signals to slots
-    connect(ui->loginButton, &QPushButton::released, this, &login::on_loginButton_released);
-    connect(ui->signup, &QPushButton::released, this, &login::on_signup_released);
+    
+    // Set the echo mode of the password input field to Password
+    ui->typePASS_box->setEchoMode(QLineEdit::Password);
 
-    signupWindow = new signup(this);
-    signupWindow->hide();
+    // Connect the clicked() signal of the loginButton to the on_loginButton_clicked() slot
+    connect(ui->loginButton, &QPushButton::released, this, &login::on_loginButton_released);
+
+    // Connect the stateChanged() signal of the QCheckBox to the on_eye_open_clicked() and on_eye_closed_clicked() slots
+    connect(ui->eye_open, &QCheckBox::stateChanged, this, &login::on_eye_open_clicked);
+    connect(ui->eye_closed, &QCheckBox::stateChanged, this, &login::on_eye_closed_clicked);
+
+    // Set icons for the eye checkbox
+    ui->eye_open->setIcon(QIcon("D:/WardenFort/WardenFort/WardenFort_Merge/WardenFort/WardenFort/eye_open.png"));
+    ui->eye_closed->setIcon(QIcon("D:/WardenFort/WardenFort/WardenFort_Merge/WardenFort/WardenFort/eye_closed.png"));
 }
 
 login::~login()
@@ -27,15 +37,18 @@ login::~login()
 
 void login::on_loginButton_released()
 {
+    // Your existing login functionality
     QString username = ui->typeUN_box->text();
     QString password = ui->typePASS_box->text();
 
+    // Query the database to check if the entered credentials are valid
     QSqlQuery query;
     query.prepare("SELECT * FROM user_db WHERE username = :username AND passwd = :password");
     query.bindValue(":username", username);
     query.bindValue(":password", password);
 
     if (query.exec() && query.next()) {
+        // Credentials are valid, proceed with login
         qDebug() << "Login successful for username:" << username;
         this->close(); // Close the login window
         WardenFort* wardenFortWindow = new WardenFort;
@@ -44,16 +57,41 @@ void login::on_loginButton_released()
 
         // Disconnect the signal-slot connection to prevent multiple executions
         disconnect(ui->loginButton, &QPushButton::released, this, &login::on_loginButton_released);
+
     }
     else {
+        // Invalid credentials, display an error message
         qDebug() << "Invalid username or password.";
         QMessageBox::warning(this, "Login Error", "Invalid username or password.");
+        // Disconnect the signal-slot connection to prevent multiple executions
+        disconnect(ui->loginButton, &QPushButton::released, this, &login::on_loginButton_released);
     }
 }
 
-
-void login::on_signup_released()
+void login::on_eye_closed_clicked()
 {
-    signupWindow->show();
-    this->hide(); // Hide the login window
+    // Set the echo mode of the password input field to Password
+    ui->typePASS_box->setEchoMode(QLineEdit::Password);
+
+    // Change the icon to open eye
+    ui->eye_open->setVisible(true);
+    ui->eye_closed->setVisible(false);
+}
+
+void login::on_eye_open_clicked()
+{
+    // Set the echo mode of the password input field to Normal
+    ui->typePASS_box->setEchoMode(QLineEdit::Normal);
+
+    // Change the icon to closed eye
+    ui->eye_open->setVisible(false);
+    ui->eye_closed->setVisible(true);
+    
+    
+}
+
+void login::on_typePASS_box_returnPressed()
+{
+    // Trigger the login process
+    on_loginButton_released();
 }

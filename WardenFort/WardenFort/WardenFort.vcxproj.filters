@@ -43,12 +43,18 @@
     <ClCompile Include="signup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="alertnotif.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="login.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="signup.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="alertnotif.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -60,6 +66,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="wardenfort.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="alertnotif.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

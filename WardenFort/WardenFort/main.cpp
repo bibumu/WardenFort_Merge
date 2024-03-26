@@ -1,13 +1,14 @@
-// main.cpp
 #include <QApplication>
-#include "WardenFort.h"
+#include <QSqlDatabase>
 #include <QSqlError>
-#include "login.h"
+#include <QSqlQuery> // Include the header for QSqlQuery
+#include <QDebug>
+#include "login.h" // Include your login header file here
+#include <QSqlError>
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
     QApplication a(argc, argv);
-    WardenFort w;
-    //w.show();
 
     // Set up the database connection
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
@@ -24,9 +25,6 @@ int main(int argc, char* argv[]) {
     // Now that the database connection is established, you can show your login window
     login login; // Assuming you have a login window defined
     login.show();
-
-    // Call the function to scan active LAN adapters and capture TCP packets
-    //w.scanActiveLANAdapters(); // Corrected invocation
 
     return a.exec();
 }

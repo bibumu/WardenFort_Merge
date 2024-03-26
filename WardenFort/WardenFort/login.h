@@ -2,17 +2,12 @@
 #define LOGIN_H
 
 #include <QMainWindow>
-#include <QLabel>
-#include <QMouseEvent>
-#include "signup.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
     class login;
 }
 QT_END_NAMESPACE
-
-
 
 class login : public QMainWindow
 {
@@ -23,15 +18,17 @@ public:
     ~login();
 
 private slots:
-    void on_loginButton_released(); // Declaration of the login button click slot
-    void on_signup_released();
+    void on_loginButton_released();
+    void on_eye_open_clicked();
+    void on_eye_closed_clicked();
 
 private:
     Ui::login* ui;
-    signup* signupWindow;
 
-    bool isSignalConnected(const QObject* sender, const QMetaMethod& signal,
-        const QObject* receiver, const QMetaMethod& slot);
+
+private slots:
+    void on_typePASS_box_returnPressed();
+
 };
 
 #endif // LOGIN_H

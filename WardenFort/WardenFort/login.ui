@@ -68,7 +68,7 @@
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgba(44, 60, 75, 0.6);
+     <string notr="true">background-color: rgba(44, 60, 75, 0.6); 
 border-radius: 50px;
 </string>
     </property>
@@ -122,10 +122,10 @@ background-color: rgba(0, 0, 0, 0);
      </property>
      <property name="styleSheet">
       <string notr="true">QLineEdit {
-border-radius: 15px;
+border-radius: 15px; 
 background-color: rgb(44, 60, 75);
 padding: 50px;
-color: rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
 }
 
 </string>
@@ -157,10 +157,10 @@ color: rgb(255, 255, 255);
      </property>
      <property name="styleSheet">
       <string notr="true">QLineEdit {
-border-radius: 15px;
+border-radius: 15px; 
 background-color: rgb(44, 60, 75);
 padding: 50px;
-color: rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
 }
 </string>
      </property>
@@ -213,7 +213,7 @@ background-color: rgba(0, 0, 0, 0);
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton {
-border-radius: 15px;
+border-radius: 15px; 
 background-color: rgb(22, 27, 46);
 color: white;
 }
@@ -246,7 +246,7 @@ background-color: rgb(24, 40, 55); /* Adjust pressed color if needed */
      </property>
      <property name="styleSheet">
       <string notr="true">QLabel {
-font: 7.5pt &quot;Segoe UI&quot;;
+	font: 7.5pt &quot;Segoe UI&quot;;
     color: #ffffff;
 background-color: rgba(0, 0, 0, 0);
 }
@@ -258,29 +258,12 @@ background-color: rgba(0, 0, 0, 0);
       <string>Forgot Password?</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="signup">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>440</y>
-       <width>75</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>Sign Up</string>
-     </property>
-    </widget>
     <zorder>typeUN_box</zorder>
     <zorder>username_text</zorder>
     <zorder>typePASS_box</zorder>
     <zorder>pass_text</zorder>
     <zorder>loginButton</zorder>
     <zorder>forgotpass_text</zorder>
-    <zorder>signup</zorder>
    </widget>
    <widget class="QLabel" name="wf_logo">
     <property name="geometry">
@@ -299,7 +282,7 @@ background-color: rgba(0, 0, 0, 0);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>7-removebg-preview 1.png</pixmap>
+     <pixmap>logo (5).png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="wf_word_2">
@@ -319,7 +302,7 @@ background-color: rgba(0, 0, 0, 0);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../../Downloads/logo (4).png</pixmap>
+     <pixmap>C:/Users/admin/Downloads/logo (4).png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="user_icon">
@@ -338,7 +321,7 @@ background-color: rgba(0, 0, 0, 0);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../../Downloads/pass_icon (11).png</pixmap>
+     <pixmap>pass_icon (11).png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="pass_icon">
@@ -357,7 +340,35 @@ background-color: rgba(0, 0, 0, 0);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../../Downloads/pass_icon (4).png</pixmap>
+     <pixmap>pass_icon (4).png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="signup_button">
+    <property name="geometry">
+     <rect>
+      <x>511</x>
+      <y>459</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>8</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 7.5pt &quot;Segoe UI&quot;;
+text-decoration: underline;
+background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Sign up</string>
     </property>
    </widget>
    <widget class="QLabel" name="wf_word">
@@ -376,7 +387,91 @@ background-color: rgba(0, 0, 0, 0);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>wardenfort (1) 2.png</pixmap>
+     <pixmap>wardenfort_word (1).png</pixmap>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="eye_open">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>327</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QCheckBox::indicator {
+    border: none; /* Remove border */
+}
+
+QCheckBox {
+    background-color: transparent; /* Remove background color */
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>eye_open.png</normaloff>eye_open.png</iconset>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="eye_closed">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>326</y>
+      <width>40</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QCheckBox::indicator {
+    border: none; /* Remove border */
+}
+
+QCheckBox {
+    background-color: transparent; /* Remove background color */
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>eye_closed.png</normaloff>eye_closed.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>

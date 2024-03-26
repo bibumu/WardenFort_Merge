@@ -1,2 +1,22 @@
-﻿  login.cpp
+﻿  Reading Qt configuration (C:/Qt/6.5.3/msvc2019_64/bin/qmake)
+  uic alertnotif.ui
+  uic login.ui
+  uic signup.ui
+  uic wardenfort.ui
+  rcc wardenfort.qrc
+  moc wardenfort.h
+  moc login.h
+  moc signup.h
+  moc alertnotif.h
+   RCC: Warning: No resources in 'D:\WardenFort\WardenFort\WardenFort_Merge\WardenFort\WardenFort\wardenfort.qrc'.
+  alertnotif.cpp
+  login.cpp
+  signup.cpp
+  wardenfort.cpp
+  main.cpp
+  qrc_wardenfort.cpp
+  moc_wardenfort.cpp
+  moc_login.cpp
+  moc_signup.cpp
+  moc_alertnotif.cpp
   WardenFort.vcxproj -> D:\WardenFort\WardenFort\WardenFort_Merge\WardenFort\x64\Debug\WardenFort.exe
