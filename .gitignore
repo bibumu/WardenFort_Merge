@@ -61,3 +61,10 @@ WardenFort/.vs/WardenFort/v17/Browse.VC.db-shm
 WardenFort/.vs/WardenFort/v17/Browse.VC.db-wal
 WardenFort/.vs/WardenFort/v17/DocumentLayout.json
 /WardenFort/.vs
+WardenFort/x64/Debug/WardenFort.pdb
+WardenFort/x64/Debug/WardenFort.exe
+*.exe
+*.tlog
+*.log
+WardenFort/x64/Debug/WardenFort.ilk
+*.ilk

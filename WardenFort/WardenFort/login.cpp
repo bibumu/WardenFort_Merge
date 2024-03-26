@@ -25,6 +25,8 @@ login::login(QWidget* parent)
     connect(ui->eye_open, &QCheckBox::stateChanged, this, &login::on_eye_open_clicked);
     connect(ui->eye_closed, &QCheckBox::stateChanged, this, &login::on_eye_closed_clicked);
 
+    connect(ui->typeUN_box, &QLineEdit::returnPressed, this, &login::on_loginButton_released);
+    connect(ui->typePASS_box, &QLineEdit::returnPressed, this, &login::on_loginButton_released);
     // Set icons for the eye checkbox
     ui->eye_open->setIcon(QIcon("eye_open.png"));
     ui->eye_closed->setIcon(QIcon("eye_closed.png"));
