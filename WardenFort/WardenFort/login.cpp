@@ -26,8 +26,8 @@ login::login(QWidget* parent)
     connect(ui->eye_closed, &QCheckBox::stateChanged, this, &login::on_eye_closed_clicked);
 
     // Set icons for the eye checkbox
-    ui->eye_open->setIcon(QIcon("D:/WardenFort/WardenFort/WardenFort_Merge/WardenFort/WardenFort/eye_open.png"));
-    ui->eye_closed->setIcon(QIcon("D:/WardenFort/WardenFort/WardenFort_Merge/WardenFort/WardenFort/eye_closed.png"));
+    ui->eye_open->setIcon(QIcon("eye_open.png"));
+    ui->eye_closed->setIcon(QIcon("eye_closed.png"));
 }
 
 login::~login()

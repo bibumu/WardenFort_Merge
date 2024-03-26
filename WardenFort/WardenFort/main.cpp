@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 
     // Set up the database connection
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("D:/WardenFort/WardenFort/WardenFort_Merge/WardenFort/WardenFort/wardenfort.db"); // Set the full path to your database file here
+    db.setDatabaseName("wardenfort.db"); // Set the full path to your database file here
 
     // Open the database connection
     if (!db.open()) {

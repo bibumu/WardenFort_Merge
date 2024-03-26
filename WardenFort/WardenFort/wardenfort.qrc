@@ -1,4 +1,13 @@
 <RCC>
-    <qresource prefix="wardenfort">
+    <qresource prefix="/wardenfort">
+        <file>eye_closed.png</file>
+        <file>wfIcon.ico</file>
+        <file>frame.png</file>
+        <file>wardenfort_word (1).png</file>
+        <file>wardenfort 1.png</file>
+        <file>eye_open.png</file>
+        <file>7-removebg-preview 1.png</file>
+        <file>pass_icon (4).png</file>
+        <file>pass_icon (11).png</file>
     </qresource>
 </RCC>
