@@ -264,25 +264,6 @@
      <string>Password</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>685</x>
-      <y>434</y>
-      <width>20</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(44, 60, 75, 0); </string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>View_hide_lightsss.png</pixmap>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
@@ -311,7 +292,7 @@ QPushButton:hover { background-color: #374151; } QPushButton:pressed { backgroun
      <string>Create Account</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton">
+   <widget class="QPushButton" name="backButton">
     <property name="geometry">
      <rect>
       <x>46</x>
@@ -321,14 +302,98 @@ QPushButton:hover { background-color: #374151; } QPushButton:pressed { backgroun
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QToolButton { border: none; background: transparent; }</string>
+     <string notr="true">QPushButton { border: none; background: transparent; }</string>
     </property>
     <property name="text">
-     <string>...</string>
+     <string/>
     </property>
     <property name="icon">
      <iconset>
       <normaloff>Expand_down_light.png</normaloff>Expand_down_light.png</iconset>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="eye_closed">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>668</x>
+      <y>435</y>
+      <width>40</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QCheckBox::indicator {
+    border: none; /* Remove border */
+}
+
+QCheckBox {
+    background-color: transparent; /* Remove background color */
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>eye_closed.png</normaloff>eye_closed.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="eye_open">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>668</x>
+      <y>436</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QCheckBox::indicator {
+    border: none; /* Remove border */
+}
+
+QCheckBox {
+    background-color: transparent; /* Remove background color */
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>eye_open.png</normaloff>eye_open.png</iconset>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>

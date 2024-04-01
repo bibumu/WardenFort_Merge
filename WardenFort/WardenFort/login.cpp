@@ -7,6 +7,7 @@
 #include <QLineEdit> // Include for QLineEdit
 #include <QCheckBox> // Include for QCheckBox
 #include "wardenfort.h"
+#include "signup.h"
 
 login::login(QWidget* parent)
     : QMainWindow(parent)
@@ -20,6 +21,8 @@ login::login(QWidget* parent)
 
     // Connect the clicked() signal of the loginButton to the on_loginButton_clicked() slot
     connect(ui->loginButton, &QPushButton::released, this, &login::on_loginButton_released);
+
+    connect(ui->signUpButton, &QPushButton::released, this, &login::on_signUpButton_released);
 
     // Connect the stateChanged() signal of the QCheckBox to the on_eye_open_clicked() and on_eye_closed_clicked() slots
     connect(ui->eye_open, &QCheckBox::stateChanged, this, &login::on_eye_open_clicked);
@@ -37,38 +40,49 @@ login::~login()
     delete ui;
 }
 
+void login::on_signUpButton_released() {
+    signup* signupWindow = new signup;
+    this->close();
+
+    signupWindow->show();
+
+    disconnect(ui->signUpButton, &QPushButton::released, this, &login::on_signUpButton_released);
+}
+
 void login::on_loginButton_released()
 {
-    // Your existing login functionality
     QString username = ui->typeUN_box->text();
     QString password = ui->typePASS_box->text();
 
-    // Query the database to check if the entered credentials are valid
     QSqlQuery query;
     query.prepare("SELECT * FROM user_db WHERE username = :username AND passwd = :password");
     query.bindValue(":username", username);
     query.bindValue(":password", password);
 
     if (query.exec() && query.next()) {
-        // Credentials are valid, proceed with login
         qDebug() << "Login successful for username:" << username;
         this->close(); // Close the login window
+
+        // Create an instance of WardenFort
         WardenFort* wardenFortWindow = new WardenFort;
         wardenFortWindow->show();
         wardenFortWindow->scanActiveLANAdapters();
 
+        // Set the welcome text
+        QString welcomeText = "Welcome, " + username + "!";
+        wardenFortWindow->setWelcomeText(welcomeText);
+
         // Disconnect the signal-slot connection to prevent multiple executions
         disconnect(ui->loginButton, &QPushButton::released, this, &login::on_loginButton_released);
-
     }
     else {
-        // Invalid credentials, display an error message
         qDebug() << "Invalid username or password.";
         QMessageBox::warning(this, "Login Error", "Invalid username or password.");
-        // Disconnect the signal-slot connection to prevent multiple executions
         disconnect(ui->loginButton, &QPushButton::released, this, &login::on_loginButton_released);
     }
 }
+
+
 
 void login::on_eye_closed_clicked()
 {

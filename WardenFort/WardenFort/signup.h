@@ -22,6 +22,9 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+    void on_backButton_released();
+    void on_eye_closed_clicked();
+    void on_eye_open_clicked();
 
 private:
     Ui::signup *ui;

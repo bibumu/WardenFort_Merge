@@ -4,6 +4,7 @@
 
 #include <QMainWindow>
 #include <QTableWidget>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class WardenFort; }
@@ -14,15 +15,17 @@ class WardenFort : public QMainWindow
     Q_OBJECT
 
 public:
+    void toggleButtonVisibility(QPushButton* buttonToHide, QPushButton* buttonToShow);
     WardenFort(QWidget* parent = nullptr);
     ~WardenFort();
     void setLabelText(const QString& text);
     QTableWidget* getTableWidget(); // Getter method for tableWidget
     void scanActiveLANAdapters(); // Corrected declaration
+    void setWelcomeText(const QString& text);
+    void toggleButtons();
 
 private slots:
-    void on_comboBox_activated(int index);
-    void on_pushButton_clicked();
+    
 
 private:
     Ui::WardenFort* ui;

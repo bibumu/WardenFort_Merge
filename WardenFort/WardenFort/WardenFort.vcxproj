@@ -100,11 +100,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtRcc Include="wardenfort.qrc" />
-    <QtUic Include="alertnotif.ui" />
+    <QtUic Include="..\..\..\..\..\GITHUB-FETCHED\updated-login\login\alertnotif.ui" />
     <QtUic Include="login.ui" />
     <QtUic Include="signup.ui" />
     <QtMoc Include="wardenfort.h" />
-    <ClCompile Include="alertnotif.cpp" />
+    <ClCompile Include="..\..\..\..\..\GITHUB-FETCHED\updated-login\login\alertnotif.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="signup.cpp" />
     <ClCompile Include="wardenfort.cpp" />
@@ -118,7 +118,7 @@
     <QtMoc Include="signup.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="alertnotif.h" />
+    <QtMoc Include="..\..\..\..\..\GITHUB-FETCHED\updated-login\login\alertnotif.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

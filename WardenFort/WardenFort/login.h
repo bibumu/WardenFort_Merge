@@ -19,6 +19,7 @@ public:
 
 private slots:
     void on_loginButton_released();
+    void on_signUpButton_released();
     void on_eye_open_clicked();
     void on_eye_closed_clicked();
 

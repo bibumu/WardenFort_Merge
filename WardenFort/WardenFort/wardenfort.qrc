@@ -9,5 +9,12 @@
         <file>7-removebg-preview 1.png</file>
         <file>pass_icon (4).png</file>
         <file>pass_icon (11).png</file>
+        <file>dd1.png</file>
+        <file>dd1_rotated.png</file>
+        <file>notif_icon.png</file>
+        <file>report_icon.png</file>
+        <file>user_icon.png</file>
+        <file>View_hide_lightsss.png</file>
+        <file>cal_icon.png</file>
     </qresource>
 </RCC>

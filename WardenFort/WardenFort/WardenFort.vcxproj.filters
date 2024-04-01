@@ -43,7 +43,7 @@
     <ClCompile Include="signup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="alertnotif.cpp">
+    <ClCompile Include="..\..\..\..\..\GITHUB-FETCHED\updated-login\login\alertnotif.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,7 +54,7 @@
     <QtMoc Include="signup.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="alertnotif.h">
+    <QtMoc Include="..\..\..\..\..\GITHUB-FETCHED\updated-login\login\alertnotif.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -68,7 +68,7 @@
     <QtUic Include="wardenfort.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="alertnotif.ui">
+    <QtUic Include="..\..\..\..\..\GITHUB-FETCHED\updated-login\login\alertnotif.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

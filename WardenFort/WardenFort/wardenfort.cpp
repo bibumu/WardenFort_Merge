@@ -1,20 +1,51 @@
-// WardenFort.cpp
 #include "WardenFort.h"
 #include "ui_WardenFort.h"
 #include <QColor>
 #include <QTableWidgetItem>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <QApplication>
+#include <QThread>
+#include <limits>
+#include <iphlpapi.h> 
+#include <stdio.h>    
+#include <ctime>
+#include <QScrollBar>
+#include <pcap.h>
+#include <QDebug>
+
+#pragma comment(lib, "Ws2_32.lib") // Add the following line to include Ws2_32.lib directly in your source code
+
+int i = 0;
 
 WardenFort::WardenFort(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::WardenFort)
 {
     ui->setupUi(this);
+
+    // Connect the clicked signal of dd buttons to the toggle function
+    connect(ui->dd1, &QPushButton::clicked, this, &WardenFort::toggleButtons);
+    connect(ui->dd2, &QPushButton::clicked, this, &WardenFort::toggleButtons);
+    connect(ui->dd3, &QPushButton::clicked, this, &WardenFort::toggleButtons);
+    connect(ui->dd4, &QPushButton::clicked, this, &WardenFort::toggleButtons);
+    connect(ui->dd5, &QPushButton::clicked, this, &WardenFort::toggleButtons);
+    connect(ui->dd6, &QPushButton::clicked, this, &WardenFort::toggleButtons);
+    connect(ui->dd7, &QPushButton::clicked, this, &WardenFort::toggleButtons);
+    connect(ui->dd8, &QPushButton::clicked, this, &WardenFort::toggleButtons);
+
+    // Initially hide dd5 to dd8 buttons
+    ui->dd5->setVisible(false);
+    ui->dd6->setVisible(false);
+    ui->dd7->setVisible(false);
+    ui->dd8->setVisible(false);
 }
 
 WardenFort::~WardenFort()
 {
     delete ui;
 }
+
 
 void WardenFort::setLabelText(const QString& text) {
     ui->label->setText(text);
@@ -24,36 +55,9 @@ QTableWidget* WardenFort::getTableWidget() {
     return ui->tableWidget; // Return the tableWidget
 }
 
-void WardenFort::on_comboBox_activated(int index)
-{
-    // Implement the slot functionality here
+void WardenFort::setWelcomeText(const QString& text) {
+    ui->welcome_text->setText(text);
 }
-
-void WardenFort::on_pushButton_clicked()
-{
-    // Implement the push button click functionality here
-}
-
-#include <winsock2.h>
-#include <ws2tcpip.h>
-#include "WardenFort.h"
-#include <QApplication>
-#include <QThread>
-#include <limits>
-#include <iphlpapi.h> // For IP Helper API
-#include <stdio.h>    // For printf
-#include <ctime>
-#include <QTableWidgetItem>
-#include <QScrollBar>
-
-// Add the following line to include Ws2_32.lib directly in your source code
-#pragma comment(lib, "Ws2_32.lib")
-
-// Include Npcap headers
-#include <pcap.h>
-#include <QDebug>
-
-int i = 0;
 
 // Define TCP header flags for Windows
 #define TH_FIN  0x01
@@ -68,8 +72,8 @@ constexpr int MIN_EXPECTED_PAYLOAD_LENGTH = 0;    // Minimum expected payload le
 constexpr int MAX_EXPECTED_PACKET_LENGTH = 70;
 
 struct IPHeader {
-    u_char  VersionAndHeaderLength; // Version (4 bits) + Header length (4 bits)
-    u_char  TypeOfService;          // Type of service
+    u_char  VersionAndHeaderLength;  // Version (4 bits) + Header length (4 bits)
+    u_char  TypeOfService;           // Type of service
     u_short TotalLength;             // Total length
     u_short Identification;          // Identification
     u_short FlagsAndFragmentOffset;  // Flags (3 bits) + Fragment offset (13 bits)
@@ -81,18 +85,18 @@ struct IPHeader {
 };
 
 struct ICMPHeader {
-    uint8_t type;     // ICMP message type
-    uint8_t code;     // ICMP message code
+    uint8_t type;      // ICMP message type
+    uint8_t code;      // ICMP message code
     uint16_t checksum; // ICMP message checksum
-    // Additional fields if needed
+                       // Additional fields if needed
 };
 
 struct my_tcphdr {
-    u_short th_sport;  // source port
-    u_short th_dport;  // destination port
-    u_int th_seq;      // sequence number
-    u_int th_ack;      // acknowledgement number
-    u_char th_offx2;   // data offset, rsvd
+    u_short th_sport;   // source port
+    u_short th_dport;   // destination port
+    u_int th_seq;       // sequence number
+    u_int th_ack;       // acknowledgement number
+    u_char th_offx2;    // data offset, rsvd
     u_char th_flags;
     u_short th_win;     // window
     u_short th_sum;     // checksum
@@ -396,4 +400,42 @@ void WardenFort::scanActiveLANAdapters() { // Corrected definition
 
     // Free the list of adapters
     pcap_freealldevs(allAdapters);
+}
+
+void WardenFort::toggleButtonVisibility(QPushButton* buttonToHide, QPushButton* buttonToShow)
+{
+    buttonToHide->setVisible(false);
+    buttonToShow->setVisible(true);
+}
+
+void WardenFort::toggleButtons()
+{
+    QPushButton* clickedButton = qobject_cast<QPushButton*>(sender());
+    if (!clickedButton)
+        return; // Safety check
+
+    if (clickedButton == ui->dd1) {
+        toggleButtonVisibility(ui->dd1, ui->dd5);
+    }
+    else if (clickedButton == ui->dd2) {
+        toggleButtonVisibility(ui->dd2, ui->dd6);
+    }
+    else if (clickedButton == ui->dd3) {
+        toggleButtonVisibility(ui->dd3, ui->dd7);
+    }
+    else if (clickedButton == ui->dd4) {
+        toggleButtonVisibility(ui->dd4, ui->dd8);
+    }
+    else if (clickedButton == ui->dd5) {
+        toggleButtonVisibility(ui->dd5, ui->dd1);
+    }
+    else if (clickedButton == ui->dd6) {
+        toggleButtonVisibility(ui->dd6, ui->dd2);
+    }
+    else if (clickedButton == ui->dd7) {
+        toggleButtonVisibility(ui->dd7, ui->dd3);
+    }
+    else if (clickedButton == ui->dd8) {
+        toggleButtonVisibility(ui->dd8, ui->dd4);
+    }
 }
