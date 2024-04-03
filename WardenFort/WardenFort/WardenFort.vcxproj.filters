@@ -46,6 +46,15 @@
     <ClCompile Include="..\..\..\..\..\GITHUB-FETCHED\updated-login\login\alertnotif.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="accountsettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="passwordsec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="otp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="login.h">
@@ -55,6 +64,15 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="..\..\..\..\..\GITHUB-FETCHED\updated-login\login\alertnotif.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="accountsettings.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="passwordsec.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="otp.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -69,6 +87,15 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="..\..\..\..\..\GITHUB-FETCHED\updated-login\login\alertnotif.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="passwordsec.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="accountsettings.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="otp.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

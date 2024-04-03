@@ -1,2 +1,3 @@
-﻿  signup.cpp
+﻿  uic otp.ui
+  otp.cpp
   WardenFort.vcxproj -> D:\WardenFort\WardenFort\WardenFort_Merge\WardenFort\x64\Debug\WardenFort.exe

@@ -2,6 +2,7 @@
 #define LOGIN_H
 
 #include <QMainWindow>
+#include "otp.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -25,7 +26,7 @@ private slots:
 
 private:
     Ui::login* ui;
-
+    otp* otpWindow;
 
 private slots:
     void on_typePASS_box_returnPressed();
