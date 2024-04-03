@@ -499,6 +499,7 @@ void WardenFort::on_accountButton_released() {
     ui->accountButton->setStyleSheet("QPushButton { font: 8pt \"Inter\"; background-color: transparent; color: white; }"
         "QPushButton:pressed { background-color: lightgray; }");
     accountSettings* accountWindow = new accountSettings;
+    accountWindow->getUsername(ui->welcome_text->text());
     this->close();
     accountWindow->show();
     disconnect(ui->accountButton, &QPushButton::released, this, &WardenFort::on_accountButton_released);
