@@ -89,7 +89,7 @@ font: 9pt &quot;Segoe UI&quot;;</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>C:/Users/admin/Downloads/wardenfort_word (1).png</pixmap>
+    <pixmap resource="wardenfort.qrc">:/wardenfort/wardenfort_word (1).png</pixmap>
    </property>
   </widget>
   <widget class="QLabel" name="email_text">
@@ -322,7 +322,7 @@ background-color: rgb(24, 40, 55); /* Adjust pressed color if needed */
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>C:/Users/admin/Downloads/cyber (1).png</pixmap>
+    <pixmap resource="wardenfort.qrc">:/wardenfort/wardenfort 1.png</pixmap>
    </property>
   </widget>
   <widget class="QLabel" name="verify_text">
@@ -361,6 +361,8 @@ color: rgb(255, 255, 255);</string>
   <zorder>box5</zorder>
   <zorder>resend_text</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="wardenfort.qrc"/>
+ </resources>
  <connections/>
 </ui>
