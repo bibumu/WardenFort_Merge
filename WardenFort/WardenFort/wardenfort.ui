@@ -51,8 +51,11 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(44, 60, 75);
-border-radius: 10px;</string>
+     <string notr="true">QFrame#frame
+{background-color: rgb(44, 60, 75);
+border-radius: 10px;
+border: 1px solid black;
+}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -119,6 +122,289 @@ border-radius: 10px;</string>
       <pixmap resource="wardenfort.qrc">:/wardenfort/wardenfort_word (1).png</pixmap>
      </property>
     </widget>
+    <widget class="QFrame" name="reportsTab">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>312</y>
+       <width>221</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame#reportsTab{
+ border: 1px solid black;
+background-color: rgb(44, 60, 75);
+border-radius: 0px;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="report_icon">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="wardenfort.qrc">:/wardenfort/report_icon.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="report_text">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>15</y>
+        <width>60</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255, 255, 255, 0);
+font: 700 8pt &quot;Segoe UI&quot;;
+color: rgb(1, 253, 245);</string>
+      </property>
+      <property name="text">
+       <string>REPORTS</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="dd3">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>15</y>
+        <width>20</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton::indicator {
+    border: none; /* Remove border */
+}
+
+QPushButton {
+    background-color: transparent; /* Remove background color */
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="wardenfort.qrc">
+        <normaloff>:/wardenfort/dd1.png</normaloff>:/wardenfort/dd1.png</iconset>
+      </property>
+      <property name="shortcut">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="dd7">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>15</y>
+        <width>20</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton::indicator {
+    border: none; /* Remove border */
+}
+
+QPushButton {
+    background-color: transparent; /* Remove background color */
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="wardenfort.qrc">
+        <normaloff>:/wardenfort/dd1_rotated.png</normaloff>:/wardenfort/dd1_rotated.png</iconset>
+      </property>
+      <property name="shortcut">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="calendarTab">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>361</y>
+       <width>221</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+QFrame#calendarTab{
+ border: 1px solid black;
+background-color: rgb(44, 60, 75);
+border-radius: 0px;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="cal_text">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>15</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255, 255, 255, 0);
+font: 700 8pt &quot;Segoe UI&quot;;
+color: rgb(1, 253, 245);</string>
+      </property>
+      <property name="text">
+       <string>EVENT CALENDAR</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="cal_icon">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="wardenfort.qrc">:/wardenfort/cal_icon.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="dd8">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>15</y>
+        <width>20</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton::indicator {
+    border: none; /* Remove border */
+}
+
+QPushButton {
+    background-color: transparent; /* Remove background color */
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="wardenfort.qrc">
+        <normaloff>:/wardenfort/dd1_rotated.png</normaloff>:/wardenfort/dd1_rotated.png</iconset>
+      </property>
+      <property name="shortcut">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="dd4">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>15</y>
+        <width>20</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton::indicator {
+    border: none; /* Remove border */
+}
+
+QPushButton {
+    background-color: transparent; /* Remove background color */
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="wardenfort.qrc">
+        <normaloff>:/wardenfort/dd1.png</normaloff>:/wardenfort/dd1.png</iconset>
+      </property>
+      <property name="shortcut">
+       <string/>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
@@ -170,7 +456,7 @@ border-radius: 10px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>C:/Users/Admin/.designer/backup/output-onlinepngtools.png</pixmap>
+      <pixmap>../../../../../.designer/backup/output-onlinepngtools.png</pixmap>
      </property>
     </widget>
    </widget>
@@ -338,201 +624,6 @@ color: rgb(255, 255, 255);</string>
      <string>New Detections</string>
     </property>
    </widget>
-   <widget class="Line" name="line_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>260</y>
-      <width>257</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(25, 31, 50);</string>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
-    </property>
-    <property name="lineWidth">
-     <number>0</number>
-    </property>
-    <property name="midLineWidth">
-     <number>50</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QLabel" name="report_text">
-    <property name="geometry">
-     <rect>
-      <x>73</x>
-      <y>350</y>
-      <width>60</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 700 8pt &quot;Segoe UI&quot;;
-color: rgb(1, 253, 245);</string>
-    </property>
-    <property name="text">
-     <string>REPORTS</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="cal_text">
-    <property name="geometry">
-     <rect>
-      <x>73</x>
-      <y>400</y>
-      <width>121</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 700 8pt &quot;Segoe UI&quot;;
-color: rgb(1, 253, 245);</string>
-    </property>
-    <property name="text">
-     <string>EVENT CALENDAR</string>
-    </property>
-   </widget>
-   <widget class="Line" name="line_4">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>360</y>
-      <width>257</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(25, 31, 50);</string>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
-    </property>
-    <property name="lineWidth">
-     <number>0</number>
-    </property>
-    <property name="midLineWidth">
-     <number>50</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="dd4">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>400</y>
-      <width>20</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>20</width>
-      <height>24</height>
-     </size>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton::indicator {
-    border: none; /* Remove border */
-}
-
-QPushButton {
-    background-color: transparent; /* Remove background color */
-}
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="wardenfort.qrc">
-      <normaloff>:/wardenfort/dd1.png</normaloff>:/wardenfort/dd1.png</iconset>
-    </property>
-    <property name="shortcut">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="dd7">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>350</y>
-      <width>20</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>20</width>
-      <height>24</height>
-     </size>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton::indicator {
-    border: none; /* Remove border */
-}
-
-QPushButton {
-    background-color: transparent; /* Remove background color */
-}
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="wardenfort.qrc">
-      <normaloff>:/wardenfort/dd1_rotated.png</normaloff>:/wardenfort/dd1_rotated.png</iconset>
-    </property>
-    <property name="shortcut">
-     <string/>
-    </property>
-   </widget>
-   <widget class="Line" name="line_5">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>410</y>
-      <width>257</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(25, 31, 55);</string>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
-    </property>
-    <property name="lineWidth">
-     <number>0</number>
-    </property>
-    <property name="midLineWidth">
-     <number>50</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
    <widget class="Line" name="line_1">
     <property name="geometry">
      <rect>
@@ -559,386 +650,371 @@ color: rgb(25, 31, 50);</string>
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QPushButton" name="dd1">
+   <widget class="QFrame" name="profileTab">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>250</y>
-      <width>20</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>20</width>
-      <height>24</height>
-     </size>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton::indicator {
-    border: none; /* Remove border */
-}
-
-QPushButton {
-    background-color: transparent; /* Remove background color */
-}
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="wardenfort.qrc">
-      <normaloff>:/wardenfort/dd1.png</normaloff>:/wardenfort/dd1.png</iconset>
-    </property>
-    <property name="shortcut">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="user_icon">
-    <property name="geometry">
-     <rect>
-      <x>43</x>
-      <y>240</y>
-      <width>30</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="wardenfort.qrc">:/wardenfort/user_icon.png</pixmap>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="dd2">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>300</y>
-      <width>20</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>20</width>
-      <height>24</height>
-     </size>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton::indicator {
-    border: none; /* Remove border */
-}
-
-QPushButton {
-    background-color: transparent; /* Remove background color */
-}
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="wardenfort.qrc">
-      <normaloff>:/wardenfort/dd1.png</normaloff>:/wardenfort/dd1.png</iconset>
-    </property>
-    <property name="shortcut">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="profile_text">
-    <property name="geometry">
-     <rect>
-      <x>73</x>
-      <y>250</y>
-      <width>60</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 700 8pt &quot;Segoe UI&quot;;
-color: rgb(1, 253, 245);</string>
-    </property>
-    <property name="text">
-     <string>PROFILE</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="cal_icon">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>394</y>
-      <width>41</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="wardenfort.qrc">:/wardenfort/cal_icon.png</pixmap>
-    </property>
-   </widget>
-   <widget class="QLabel" name="alert_icon">
-    <property name="geometry">
-     <rect>
-      <x>41</x>
-      <y>291</y>
-      <width>21</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="wardenfort.qrc">:/wardenfort/notif_icon.png</pixmap>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="dd6">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>300</y>
-      <width>20</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>20</width>
-      <height>24</height>
-     </size>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton::indicator {
-    border: none; /* Remove border */
-}
-
-QPushButton {
-    background-color: transparent; /* Remove background color */
-}
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="wardenfort.qrc">
-      <normaloff>:/wardenfort/dd1_rotated.png</normaloff>:/wardenfort/dd1_rotated.png</iconset>
-    </property>
-    <property name="shortcut">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="alert_text">
-    <property name="geometry">
-     <rect>
-      <x>73</x>
-      <y>300</y>
-      <width>60</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 700 8pt &quot;Segoe UI&quot;;
-color: rgb(1, 253, 245);</string>
-    </property>
-    <property name="text">
-     <string>ALERTS</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="dd3">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>350</y>
-      <width>20</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>20</width>
-      <height>24</height>
-     </size>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton::indicator {
-    border: none; /* Remove border */
-}
-
-QPushButton {
-    background-color: transparent; /* Remove background color */
-}
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="wardenfort.qrc">
-      <normaloff>:/wardenfort/dd1.png</normaloff>:/wardenfort/dd1.png</iconset>
-    </property>
-    <property name="shortcut">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="report_icon">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>345</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="wardenfort.qrc">:/wardenfort/report_icon.png</pixmap>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="dd5">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>250</y>
-      <width>20</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>20</width>
-      <height>24</height>
-     </size>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton::indicator {
-    border: none; /* Remove border */
-}
-
-QPushButton {
-    background-color: transparent; /* Remove background color */
-}
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="wardenfort.qrc">
-      <normaloff>:/wardenfort/dd1_rotated.png</normaloff>:/wardenfort/dd1_rotated.png</iconset>
-    </property>
-    <property name="shortcut">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="dd8">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>400</y>
-      <width>20</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>20</width>
-      <height>24</height>
-     </size>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton::indicator {
-    border: none; /* Remove border */
-}
-
-QPushButton {
-    background-color: transparent; /* Remove background color */
-}
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="wardenfort.qrc">
-      <normaloff>:/wardenfort/dd1_rotated.png</normaloff>:/wardenfort/dd1_rotated.png</iconset>
-    </property>
-    <property name="shortcut">
-     <string/>
-    </property>
-   </widget>
-   <widget class="Line" name="line_3">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>310</y>
-      <width>257</width>
+      <x>20</x>
+      <y>234</y>
+      <width>221</width>
       <height>50</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(25, 31, 50);</string>
+     <string notr="true">QFrame#profileTab{
+ border: 1px solid black;
+background-color: rgb(44, 60, 75);
+border-radius: 0px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
+     <enum>QFrame::Raised</enum>
     </property>
-    <property name="lineWidth">
-     <number>0</number>
+    <widget class="QLabel" name="user_icon">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>5</y>
+       <width>30</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="wardenfort.qrc">:/wardenfort/user_icon.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="profile_text">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>15</y>
+       <width>60</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);
+font: 700 8pt &quot;Segoe UI&quot;;
+color: rgb(1, 253, 245);</string>
+     </property>
+     <property name="text">
+      <string>PROFILE</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="dd5">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>15</y>
+       <width>20</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>20</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton::indicator {
+    border: none; /* Remove border */
+}
+
+QPushButton {
+    background-color: transparent; /* Remove background color */
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="wardenfort.qrc">
+       <normaloff>:/wardenfort/dd1_rotated.png</normaloff>:/wardenfort/dd1_rotated.png</iconset>
+     </property>
+     <property name="shortcut">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="dd1">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>15</y>
+       <width>20</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>20</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton::indicator {
+    border: none; /* Remove border */
+}
+
+QPushButton {
+    background-color: transparent; /* Remove background color */
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="wardenfort.qrc">
+       <normaloff>:/wardenfort/dd1.png</normaloff>:/wardenfort/dd1.png</iconset>
+     </property>
+     <property name="shortcut">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="alertsTab">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>283</y>
+      <width>221</width>
+      <height>50</height>
+     </rect>
     </property>
-    <property name="midLineWidth">
-     <number>50</number>
+    <property name="styleSheet">
+     <string notr="true">QFrame#alertsTab{
+ border: 1px solid black;
+background-color: rgb(44, 60, 75);
+border-radius: 0px;
+}</string>
     </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
     </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="alert_icon">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>5</y>
+       <width>21</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="wardenfort.qrc">:/wardenfort/notif_icon.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="alert_text">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>15</y>
+       <width>60</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);
+font: 700 8pt &quot;Segoe UI&quot;;
+color: rgb(1, 253, 245);</string>
+     </property>
+     <property name="text">
+      <string>ALERTS</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="dd6">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>15</y>
+       <width>20</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>20</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton::indicator {
+    border: none; /* Remove border */
+}
+
+QPushButton {
+    background-color: transparent; /* Remove background color */
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="wardenfort.qrc">
+       <normaloff>:/wardenfort/dd1_rotated.png</normaloff>:/wardenfort/dd1_rotated.png</iconset>
+     </property>
+     <property name="shortcut">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="dd2">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>15</y>
+       <width>20</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>20</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton::indicator {
+    border: none; /* Remove border */
+}
+
+QPushButton {
+    background-color: transparent; /* Remove background color */
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="wardenfort.qrc">
+       <normaloff>:/wardenfort/dd1.png</normaloff>:/wardenfort/dd1.png</iconset>
+     </property>
+     <property name="shortcut">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="profileTab_2">
+    <property name="geometry">
+     <rect>
+      <x>23</x>
+      <y>284</y>
+      <width>215</width>
+      <height>77</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(44, 60, 75);
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="accountButton">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>5</y>
+       <width>111</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton
+{
+font: 8pt &quot;Inter&quot;;
+background-color: transparent;
+color: white;
+
+}</string>
+     </property>
+     <property name="text">
+      <string>Account Settings</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="passwordButton">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>30</y>
+       <width>141</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton
+{
+font: 8pt &quot;Inter&quot;;
+background-color: transparent;
+color: white;
+}</string>
+     </property>
+     <property name="text">
+      <string>Password and Security</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="logoutButton">
+     <property name="geometry">
+      <rect>
+       <x>21</x>
+       <y>55</y>
+       <width>51</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton
+{
+font: 8pt &quot;Inter&quot;;
+background-color: transparent;
+color: red;
+}</string>
+     </property>
+     <property name="text">
+      <string>Log Out</string>
+     </property>
+    </widget>
    </widget>
    <zorder>frame_3</zorder>
    <zorder>frame</zorder>
@@ -947,33 +1023,16 @@ color: rgb(25, 31, 50);</string>
    <zorder>label_3</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
-   <zorder>line_2</zorder>
-   <zorder>report_text</zorder>
-   <zorder>cal_text</zorder>
-   <zorder>line_4</zorder>
-   <zorder>dd4</zorder>
-   <zorder>dd7</zorder>
-   <zorder>line_5</zorder>
    <zorder>line_1</zorder>
-   <zorder>dd1</zorder>
-   <zorder>user_icon</zorder>
-   <zorder>dd2</zorder>
-   <zorder>profile_text</zorder>
-   <zorder>cal_icon</zorder>
-   <zorder>alert_icon</zorder>
-   <zorder>dd6</zorder>
-   <zorder>alert_text</zorder>
-   <zorder>dd3</zorder>
-   <zorder>report_icon</zorder>
-   <zorder>dd5</zorder>
-   <zorder>dd8</zorder>
-   <zorder>line_3</zorder>
+   <zorder>profileTab</zorder>
+   <zorder>alertsTab</zorder>
+   <zorder>profileTab_2</zorder>
   </widget>
  </widget>
  <resources>
   <include location="wardenfort.qrc"/>
   <include location="wardenfort.qrc"/>
-  <include location="C:/Users/Admin/.designer/backup/wardenfort.qrc"/>
+  <include location="../../../../../.designer/backup/wardenfort.qrc"/>
  </resources>
  <connections/>
 </ui>
