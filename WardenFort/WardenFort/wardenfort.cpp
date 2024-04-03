@@ -487,6 +487,7 @@ void WardenFort::on_passwordButton_released() {
     ui->passwordButton->setStyleSheet("QPushButton { font: 8pt \"Inter\"; background-color: transparent; color: white; }"
         "QPushButton:pressed { background-color: lightgray; }");
     passwordSec* passWindow = new passwordSec;
+     passWindow->getUsername(ui->welcome_text->text());
     this->close();
     passWindow->show();
     disconnect(ui->passwordButton, &QPushButton::released, this, &WardenFort::on_passwordButton_released);

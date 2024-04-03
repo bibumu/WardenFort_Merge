@@ -8,7 +8,6 @@
 #include <QCheckBox> // Include for QCheckBox
 #include "wardenfort.h"
 #include "signup.h"
-#include "otp.h"
 
 login::login(QWidget* parent)
     : QMainWindow(parent)
@@ -21,6 +20,8 @@ login::login(QWidget* parent)
     ui->typePASS_box->setEchoMode(QLineEdit::Password);
 
     // Connect the clicked() signal of the loginButton to the on_loginButton_clicked() slot
+    
+
     connect(ui->signUpButton, &QPushButton::released, this, &login::on_signUpButton_released);
 
     // Connect the stateChanged() signal of the QCheckBox to the on_eye_open_clicked() and on_eye_closed_clicked() slots
@@ -64,14 +65,13 @@ void login::on_loginButton_released()
         this->close(); // Close the login window
 
         // Create an instance of WardenFort
-        if (!otpWindow) {
-            // If not, create an instance and show it
-            otpWindow = new otp();
-            otpWindow->show();
-        }
+        WardenFort* wardenFortWindow = new WardenFort;
+        wardenFortWindow->show();
+        wardenFortWindow->scanActiveLANAdapters();
 
         // Set the welcome text
-       
+        QString welcomeText = "Welcome, " + username + "!";
+        wardenFortWindow->setWelcomeText(welcomeText);
 
         // Disconnect the signal-slot connection to prevent multiple executions
         disconnect(ui->loginButton, &QPushButton::released, this, &login::on_loginButton_released);
