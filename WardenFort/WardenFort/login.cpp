@@ -20,7 +20,7 @@ login::login(QWidget* parent)
     ui->typePASS_box->setEchoMode(QLineEdit::Password);
 
     // Connect the clicked() signal of the loginButton to the on_loginButton_clicked() slot
-    connect(ui->loginButton, &QPushButton::released, this, &login::on_loginButton_released);
+    
 
     connect(ui->signUpButton, &QPushButton::released, this, &login::on_signUpButton_released);
 
@@ -28,6 +28,7 @@ login::login(QWidget* parent)
     connect(ui->eye_open, &QCheckBox::stateChanged, this, &login::on_eye_open_clicked);
     connect(ui->eye_closed, &QCheckBox::stateChanged, this, &login::on_eye_closed_clicked);
 
+    connect(ui->loginButton, &QPushButton::released, this, &login::on_loginButton_released);
     connect(ui->typeUN_box, &QLineEdit::returnPressed, this, &login::on_loginButton_released);
     connect(ui->typePASS_box, &QLineEdit::returnPressed, this, &login::on_loginButton_released);
     // Set icons for the eye checkbox
@@ -74,12 +75,19 @@ void login::on_loginButton_released()
 
         // Disconnect the signal-slot connection to prevent multiple executions
         disconnect(ui->loginButton, &QPushButton::released, this, &login::on_loginButton_released);
+        disconnect(ui->typeUN_box, &QLineEdit::returnPressed, this, &login::on_loginButton_released);
+        disconnect(ui->typePASS_box, &QLineEdit::returnPressed, this, &login::on_loginButton_released);
     }
     else {
         qDebug() << "Invalid username or password.";
         QMessageBox::warning(this, "Login Error", "Invalid username or password.");
         disconnect(ui->loginButton, &QPushButton::released, this, &login::on_loginButton_released);
+        disconnect(ui->typeUN_box, &QLineEdit::returnPressed, this, &login::on_loginButton_released);
+        disconnect(ui->typePASS_box, &QLineEdit::returnPressed, this, &login::on_loginButton_released);
     }
+    connect(ui->loginButton, &QPushButton::released, this, &login::on_loginButton_released);
+    connect(ui->typeUN_box, &QLineEdit::returnPressed, this, &login::on_loginButton_released);
+    connect(ui->typePASS_box, &QLineEdit::returnPressed, this, &login::on_loginButton_released);
 }
 
 

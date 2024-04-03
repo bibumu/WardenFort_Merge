@@ -13,6 +13,9 @@
 #include <QScrollBar>
 #include <pcap.h>
 #include <QDebug>
+#include "accountsettings.h"
+#include "passwordsec.h"
+#include "login.h"
 
 #pragma comment(lib, "Ws2_32.lib") // Add the following line to include Ws2_32.lib directly in your source code
 
@@ -34,11 +37,17 @@ WardenFort::WardenFort(QWidget* parent)
     connect(ui->dd7, &QPushButton::clicked, this, &WardenFort::toggleButtons);
     connect(ui->dd8, &QPushButton::clicked, this, &WardenFort::toggleButtons);
 
+    //profiletab links
+    connect(ui->passwordButton, &QPushButton::released, this, &WardenFort::on_passwordButton_released);
+    connect(ui->accountButton, &QPushButton::released, this, &WardenFort::on_accountButton_released);
+    connect(ui->logoutButton, &QPushButton::released, this, &WardenFort::on_logoutButton_released);
+
     // Initially hide dd5 to dd8 buttons
     ui->dd5->setVisible(false);
     ui->dd6->setVisible(false);
     ui->dd7->setVisible(false);
     ui->dd8->setVisible(false);
+    ui->profileTab_2->setVisible(false);
 }
 
 WardenFort::~WardenFort()
@@ -410,15 +419,32 @@ void WardenFort::toggleButtonVisibility(QPushButton* buttonToHide, QPushButton* 
 
 void WardenFort::toggleButtons()
 {
+    int newY;
     QPushButton* clickedButton = qobject_cast<QPushButton*>(sender());
     if (!clickedButton)
         return; // Safety check
 
     if (clickedButton == ui->dd1) {
         toggleButtonVisibility(ui->dd1, ui->dd5);
+        //alerts tab
+        newY = ui->alertsTab->y() + 80;
+        ui->alertsTab->move(ui->alertsTab->x(), newY);
+        //reports tab
+        newY = ui->reportsTab->y() + 80;
+        ui->reportsTab->move(ui->reportsTab->x(), newY);
+        //calendarTab
+        newY = ui->calendarTab->y() + 80;
+        ui->calendarTab->move(ui->calendarTab->x(), newY);
+        ui->profileTab_2->setVisible(true);
     }
     else if (clickedButton == ui->dd2) {
         toggleButtonVisibility(ui->dd2, ui->dd6);
+        //reports tab
+        newY = ui->reportsTab->y() + 80;
+        ui->reportsTab->move(ui->reportsTab->x(), newY);
+        //calendarTab
+        newY = ui->calendarTab->y() + 80;
+        ui->calendarTab->move(ui->calendarTab->x(), newY);
     }
     else if (clickedButton == ui->dd3) {
         toggleButtonVisibility(ui->dd3, ui->dd7);
@@ -428,9 +454,25 @@ void WardenFort::toggleButtons()
     }
     else if (clickedButton == ui->dd5) {
         toggleButtonVisibility(ui->dd5, ui->dd1);
+        //alerts tab
+        newY = ui->alertsTab->y() - 80;
+        ui->alertsTab->move(ui->alertsTab->x(), newY);
+        //reports tab
+        newY = ui->reportsTab->y() - 80;
+        ui->reportsTab->move(ui->reportsTab->x(), newY);
+        //calendarTab
+        newY = ui->calendarTab->y() - 80;
+        ui->calendarTab->move(ui->calendarTab->x(), newY);
+        ui->profileTab_2->setVisible(false);
     }
     else if (clickedButton == ui->dd6) {
         toggleButtonVisibility(ui->dd6, ui->dd2);
+        //reports tab
+        newY = ui->reportsTab->y() - 80;
+        ui->reportsTab->move(ui->reportsTab->x(), newY);
+        //calendarTab
+        newY = ui->calendarTab->y() - 80;
+        ui->calendarTab->move(ui->calendarTab->x(), newY);
     }
     else if (clickedButton == ui->dd7) {
         toggleButtonVisibility(ui->dd7, ui->dd3);
@@ -439,3 +481,38 @@ void WardenFort::toggleButtons()
         toggleButtonVisibility(ui->dd8, ui->dd4);
     }
 }
+
+void WardenFort::on_passwordButton_released() {
+
+    ui->passwordButton->setStyleSheet("QPushButton { font: 8pt \"Inter\"; background-color: transparent; color: white; }"
+        "QPushButton:pressed { background-color: lightgray; }");
+    passwordSec* passWindow = new passwordSec;
+    this->close();
+    passWindow->show();
+    disconnect(ui->passwordButton, &QPushButton::released, this, &WardenFort::on_passwordButton_released);
+
+}
+
+void WardenFort::on_accountButton_released() {
+
+    ui->accountButton->setStyleSheet("QPushButton { font: 8pt \"Inter\"; background-color: transparent; color: white; }"
+        "QPushButton:pressed { background-color: lightgray; }");
+    accountSettings* accountWindow = new accountSettings;
+    this->close();
+    accountWindow->show();
+    disconnect(ui->accountButton, &QPushButton::released, this, &WardenFort::on_accountButton_released);
+}
+
+void WardenFort::on_logoutButton_released() {
+
+    ui->logoutButton->setStyleSheet("QPushButton { font: 8pt \"Inter\"; background-color: transparent; color: red; }"
+        "QPushButton:pressed { background-color: #FFA07A; }");
+    login* loginWindow = new login;
+    this->close();
+    loginWindow->show();
+    disconnect(ui->logoutButton, &QPushButton::released, this, &WardenFort::on_logoutButton_released);
+
+}
+
+
+

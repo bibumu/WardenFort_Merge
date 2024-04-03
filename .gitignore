@@ -68,3 +68,4 @@ WardenFort/x64/Debug/WardenFort.exe
 *.log
 WardenFort/x64/Debug/WardenFort.ilk
 *.ilk
+/QtWidgetsApplication1/.vs

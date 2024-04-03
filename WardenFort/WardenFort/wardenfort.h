@@ -6,6 +6,7 @@
 #include <QTableWidget>
 #include <QPushButton>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class WardenFort; }
 QT_END_NAMESPACE
@@ -29,6 +30,10 @@ private slots:
 
 private:
     Ui::WardenFort* ui;
+
+    void on_passwordButton_released();
+    void on_accountButton_released();
+    void on_logoutButton_released();
 };
 
 #endif // WARDENFORT_H
