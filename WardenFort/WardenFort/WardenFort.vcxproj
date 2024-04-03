@@ -101,11 +101,17 @@
   <ItemGroup>
     <QtRcc Include="wardenfort.qrc" />
     <QtUic Include="..\..\..\..\..\GITHUB-FETCHED\updated-login\login\alertnotif.ui" />
+    <QtUic Include="accountsettings.ui" />
     <QtUic Include="login.ui" />
+    <QtUic Include="otp.ui" />
+    <QtUic Include="passwordsec.ui" />
     <QtUic Include="signup.ui" />
     <QtMoc Include="wardenfort.h" />
     <ClCompile Include="..\..\..\..\..\GITHUB-FETCHED\updated-login\login\alertnotif.cpp" />
+    <ClCompile Include="accountsettings.cpp" />
     <ClCompile Include="login.cpp" />
+    <ClCompile Include="otp.cpp" />
+    <ClCompile Include="passwordsec.cpp" />
     <ClCompile Include="signup.cpp" />
     <ClCompile Include="wardenfort.cpp" />
     <ClCompile Include="main.cpp" />
@@ -119,6 +125,15 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="..\..\..\..\..\GITHUB-FETCHED\updated-login\login\alertnotif.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="accountsettings.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="passwordsec.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="otp.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

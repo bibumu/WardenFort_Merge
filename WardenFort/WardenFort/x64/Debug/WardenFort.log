@@ -1,2 +1,18 @@
-﻿  signup.cpp
+﻿  moc login.h
+  alertnotif.cpp
+  accountsettings.cpp
+  login.cpp
+  otp.cpp
+  passwordsec.cpp
+  signup.cpp
+  wardenfort.cpp
+  main.cpp
+  qrc_wardenfort.cpp
+  moc_wardenfort.cpp
+  moc_signup.cpp
+  moc_alertnotif.cpp
+  moc_accountsettings.cpp
+  moc_passwordsec.cpp
+  moc_otp.cpp
+  moc_login.cpp
   WardenFort.vcxproj -> D:\WardenFort\WardenFort\WardenFort_Merge\WardenFort\x64\Debug\WardenFort.exe
