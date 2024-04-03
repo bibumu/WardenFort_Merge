@@ -272,12 +272,12 @@
       <pixmap>../../../../Downloads/circle.png</pixmap>
      </property>
     </widget>
-    <widget class="QLabel" name="label_14">
+    <widget class="QLabel" name="pfp">
      <property name="geometry">
       <rect>
        <x>70</x>
        <y>70</y>
-       <width>71</width>
+       <width>131</width>
        <height>81</height>
       </rect>
      </property>
@@ -286,6 +286,9 @@
      </property>
      <property name="text">
       <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="wardenfort.qrc">:/wardenfort/pfp</pixmap>
      </property>
     </widget>
    </widget>
@@ -471,7 +474,7 @@ color: white;</string>
       <string>Last Name</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="fnameLine">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -486,7 +489,7 @@ padding: 10px;
 border-radius: 15px;</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="lnameLine">
      <property name="geometry">
       <rect>
        <x>300</x>
@@ -523,7 +526,7 @@ border-radius: 15px;</string>
       <string>Gender</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="genderCombo">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -537,6 +540,26 @@ border-radius: 15px;</string>
 padding: 10px;
 border-radius: 15px;</string>
      </property>
+     <item>
+      <property name="text">
+       <string>Male</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Female</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Prefer not to say</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Others</string>
+      </property>
+     </item>
     </widget>
     <widget class="QDateEdit" name="dateEdit">
      <property name="geometry">
@@ -597,7 +620,7 @@ border-radius: 15px;</string>
       <string>Email Address</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="emailLine">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -612,7 +635,7 @@ padding: 10px;
 border-radius: 15px;</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
+    <widget class="QLineEdit" name="usernameLine">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -649,34 +672,10 @@ border-radius: 15px;</string>
       <string>Username</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="applyButton">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>400</y>
-       <width>91</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Inter</family>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #01FDF5;
-color: black;
-border-radius: 15px;</string>
-     </property>
-     <property name="text">
-      <string>Change</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_3">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
+       <x>430</x>
        <y>460</y>
        <width>91</width>
        <height>31</height>
@@ -694,23 +693,7 @@ color: black;
 border-radius: 15px;</string>
      </property>
      <property name="text">
-      <string>Change</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_15">
-     <property name="geometry">
-      <rect>
-       <x>390</x>
-       <y>360</y>
-       <width>111</width>
-       <height>121</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string/>
+      <string>Apply</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_16">
@@ -759,19 +742,17 @@ border-radius: 15px;</string>
     <zorder>label_7</zorder>
     <zorder>label_8</zorder>
     <zorder>label_9</zorder>
-    <zorder>lineEdit</zorder>
-    <zorder>lineEdit_2</zorder>
+    <zorder>fnameLine</zorder>
+    <zorder>lnameLine</zorder>
     <zorder>label_10</zorder>
-    <zorder>comboBox</zorder>
+    <zorder>genderCombo</zorder>
     <zorder>dateEdit</zorder>
     <zorder>label_11</zorder>
     <zorder>label_12</zorder>
-    <zorder>lineEdit_3</zorder>
-    <zorder>lineEdit_4</zorder>
+    <zorder>emailLine</zorder>
+    <zorder>usernameLine</zorder>
     <zorder>label_13</zorder>
-    <zorder>pushButton_2</zorder>
-    <zorder>pushButton_3</zorder>
-    <zorder>label_15</zorder>
+    <zorder>applyButton</zorder>
     <zorder>label_16</zorder>
     <zorder>label_18</zorder>
    </widget>
@@ -788,6 +769,9 @@ border-radius: 15px;</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="QtWidgetsApplication1.qrc"/>
+  <include location="wardenfort.qrc"/>
+ </resources>
  <connections/>
 </ui>

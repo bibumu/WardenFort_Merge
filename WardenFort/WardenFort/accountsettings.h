@@ -16,6 +16,9 @@ class accountSettings : public QMainWindow
 public:
     accountSettings(QWidget *parent = nullptr);
     ~accountSettings();
+    void getUsername(const QString& text);
+    void applyChanges();
+    QString Username;
 
 private:
     Ui::accountSettings *ui;
